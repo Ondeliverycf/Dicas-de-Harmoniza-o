@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cardápio Digital - Vinhos e Pizzas</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-image: url('https://images.unsplash.com/photo-1632823085914-7909bb63f9e3?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.6); /* Sobreposição escura */
+    }
+  </style>
+</head>
+<body class="font-sans">
+
+  <div class="overlay min-h-screen flex items-center justify-center">
+    <div class="max-w-2xl mx-auto p-6 text-white">
+      <h1 class="text-3xl font-bold text-center mb-6">🍷 Harmonize seu vinho com a pizza ideal</h1>
+
+      <div class="flex justify-center mb-4">
+        <button class="tab-button px-4 py-2 mx-1 bg-red-600 hover:bg-red-700 rounded-lg" data-tab="tintos">Tintos</button>
+        <button class="tab-button px-4 py-2 mx-1 bg-pink-600 hover:bg-pink-700 rounded-lg" data-tab="roses">Rosés</button>
+        <button class="tab-button px-4 py-2 mx-1 bg-yellow-600 hover:bg-yellow-700 rounded-lg" data-tab="brancos">Brancos</button>
+      </div>
+
+      <!-- Tintos -->
+      <div class="tab-content" id="tintos">
+        <div class="space-y-4">
+          <div class="p-4 bg-white bg-opacity-20 backdrop-blur rounded-xl">
+            <h2 class="text-xl font-semibold">Cabernet Sauvignon</h2>
+            <p class="text-sm">🍕 Calabresa, Pepperoni, Quatro Queijos (fortes), Carnes, Portuguesa.</p>
+          </div>
+          <div class="p-4 bg-white bg-opacity-20 backdrop-blur rounded-xl">
+            <h2 class="text-xl font-semibold">Malbec</h2>
+            <p class="text-sm">🍕 Calabresa, Portuguesa, Frango com Catupiry, Lombo Canadense, Margherita (leve).</p>
+          </div>
+          <div class="p-4 bg-white bg-opacity-20 backdrop-blur rounded-xl">
+            <h2 class="text-xl font-semibold">Carmenere</h2>
+            <p class="text-sm">🍕 Calabresa, Pepperoni, Portuguesa, Bacon.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rosés -->
+      <div class="tab-content hidden" id="roses">
+        <div class="space-y-4">
+          <div class="p-4 bg-white bg-opacity-20 backdrop-blur rounded-xl">
+            <h2 class="text-xl font-semibold">Freixenet Rosado, Mateus Rosé, Casal Garcia Rosé</h2>
+            <p class="text-sm">🍕 Margherita, Frango com Catupiry, Presunto e Queijo, Atum, Quatro Queijos (suaves), Vegetarianas.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Brancos -->
+      <div class="tab-content hidden" id="brancos">
+        <div class="space-y-4">
+          <div class="p-4 bg-white bg-opacity-20 backdrop-blur rounded-xl">
+            <h2 class="text-xl font-semibold">Sauvignon Blanc</h2>
+            <p class="text-sm">🍕 Frango com Catupiry, Atum, Brócolis com Bacon, Vegetarianas, Pizza branca.</p>
+          </div>
+          <div class="p-4 bg-white bg-opacity-20 backdrop-blur rounded-xl">
+            <h2 class="text-xl font-semibold">Chardonnay</h2>
+            <p class="text-sm">🍕 Fresco: Frango com Catupiry, Quatro Queijos (suaves), Palmito.<br>
+              🍕 Encorpado: Pizzas cremosas ou Frango defumado.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll('.tab-button');
+    const contents = document.querySelectorAll('.tab-content');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        contents.forEach(content => content.classList.add('hidden'));
+        document.getElementById(button.dataset.tab).classList.remove('hidden');
+      });
+    });
+  </script>
+</body>
+</html>
